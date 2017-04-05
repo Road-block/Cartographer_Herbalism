@@ -4,6 +4,7 @@ local Tablet = AceLibrary("Tablet-2.0")
 local Deformat = AceLibrary("Deformat-2.0")
 
 local L = AceLibrary("AceLocale-2.2"):new("Cartographer_Herbalism")
+
 L:RegisterTranslations("enUS", function() return {
     ["Requires Herbalism"] = true,
     
@@ -44,18 +45,48 @@ L:RegisterTranslations("enUS", function() return {
     ["Swiftthistle"] = true,
     ["Wild Steelbloom"] = true,
     ["Wintersbite"] = true,
-    -- tbc
-	  ["Felweed"] = true,
-	  ["Blood Thistle"] = true,
-	  ["Mana Thistle"] = true,
-	  ["Netherbloom"] = true,
-	  ["Nightmare Vine"] = true,
-	  ["Ragveil"] = true,
-	  ["Terocone"] = true,
-	  ["Flame Cap"] = true,
-	  ["Dreaming Glory"] = true,
-	  ["Fel Lotus"] = true,
-	  ["Ancient Lichen"] = true,
+} end)
+
+L:RegisterTranslations("ruRU", function() return {
+    ["Requires Herbalism"] = "Требуется Травничество",
+    
+    ["Filter"] = "Фильтр",
+    ["Filter out herbs"] = "Фильтр по травам",
+    
+    ["Select all"] = "Выбрать все",
+    ["Select none"] = "Убрать все",
+
+    -- herbs
+    ["Silverleaf"] = "Сребролист",
+    ["Peacebloom"] = "Мироцвет",
+    ["Mageroyal"] = "Магороза",
+    ["Bruiseweed"] = "Синячник",
+    ["Kingsblood"] = "Королевская кровь",
+    ["Fadeleaf"] = "Бледнолист",
+    ["Stranglekelp"] = "Удавник",
+    ["Liferoot"] = "Корень жизни",
+    ["Briarthorn"] = "Остротерн",
+    ["Earthroot"] = "Земляной корень",
+    ["Sungrass"] = "Солнечник",
+    ["Blindweed"] = "Пастушья сумка",
+    ["Gromsblood"] = "Кровь Грома",
+    ["Dreamfoil"] = "Снолист",
+    ["Firebloom"] = "Огнецвет",
+    ["Arthas' Tears"] = "Слезы Артаса",
+    ["Purple Lotus"] = "Лиловый лотос",
+    ["Goldthorn"] = "Златошип",
+    ["Wildvine"] = "Дикая лоза",
+    ["Grave Moss"] = "Могильный мох",
+    ["Mountain Silversage"] = "Горный серебряный шалфей",
+    ["Black Lotus"] = "Черный лотос",
+    ["Ghost Mushroom"] = "Призрачная поганка",
+    ["Golden Sansam"] = "Золотой сансам",
+    ["Icecap"] = "Ледяной зев",
+    ["Khadgar's Whisker"] = "Кадгаров ус",
+    ["Plaguebloom"] = "Чумоцвет",
+    ["Swiftthistle"] = "Скорополох",
+    ["Wild Steelbloom"] = "Дикий сталецвет",
+    ["Wintersbite"] = "Морозник",
 } end)
 
 L:RegisterTranslations("deDE", function() return {
@@ -98,18 +129,6 @@ L:RegisterTranslations("deDE", function() return {
     ["Swiftthistle"] = "Flitzdistel",
     ["Wild Steelbloom"] = "Wildstahlblume",
     ["Wintersbite"] = "Winterbiss",
-    -- tbc
-	  ["Felweed"] = "Teufelskraut",--check
-	  ["Blood Thistle"] = "Blutdistel",--check
-	  ["Mana Thistle"] = "Manadistel",--check
-	  ["Netherbloom"] = "Netherblüte", --check
-	  ["Nightmare Vine"] = "Albtraumranke", --check
-	  ["Ragveil"] = "Ragveil", --check
-	  ["Terocone"] = "Terocone", --check
-	  ["Flame Cap"] = "Flammenkappe", --check
-	  ["Dreaming Glory"] = "Dreaming Glory",
-	  ["Fel Lotus"] = "Teufelslotus", -- check
-	  ["Ancient Lichen"] = "Ancient Lichen", --check
 } end)
 
 L:RegisterTranslations("frFR", function() return {
@@ -152,18 +171,6 @@ L:RegisterTranslations("frFR", function() return {
     ["Swiftthistle"] = "Chardonnier",
     ["Wild Steelbloom"] = "Aci\195\169rite sauvage",
     ["Wintersbite"] = "Hivernale",
-    -- tbc
---	  ["Felweed"] = true,
---	  ["Blood Thistle"] = true,
---	  ["Mana Thistle"] = true,
---	  ["Netherbloom"] = true,
---	  ["Nightmare Vine"] = true,
---	  ["Ragveil"] = true,
---	  ["Terocone"] = true,
---	  ["Flame Cap"] = true,
---	  ["Dreaming Glory"] = true,
---	  ["Fel Lotus"] = true,
---	  ["Ancient Lichen"] = true,
 } end)
 
 L:RegisterTranslations("koKR", function() return {
@@ -206,7 +213,6 @@ L:RegisterTranslations("koKR", function() return {
     ["Swiftthistle"] = "토끼엉겅퀴풀",
     ["Wild Steelbloom"] = "야생 철쭉",
     ["Wintersbite"] = "겨울서리풀",
-    ["Felweed"] = "지옥풀",
 } end)
 
 local mod = Cartographer:NewModule("Herbalism", "AceConsole-2.0", "AceEvent-2.0")
@@ -251,12 +257,6 @@ mod.icon = {
     ["Fadeleaf"] = {
         text = L["Fadeleaf"],
         path = "Interface\\Icons\\INV_Misc_Herb_12",
-        width = 12,
-        height = 12
-    },
-    ["Felweed"] = {
-        text = L["Felweed"],
-        path = "Interface\\Icons\\INV_Misc_Herb_Felweed",
         width = 12,
         height = 12
     },
@@ -395,72 +395,6 @@ mod.icon = {
     ["Wild Steelbloom"] = {
         text = L["Wild Steelbloom"],
         path = "Interface\\Icons\\INV_Misc_Flower_01",
-        width = 12,
-        height = 12
-    },
-    ["Felweed"] = {
-        text = L["Felweed"],
-        path = "Interface\\Icons\\INV_Misc_Herb_Felweed",
-        width = 12,
-        height = 12
-    },
-    ["Blood Thistle"] = {
-        text = L["Blood Thistle"],
-        path = "Interface\\Icons\\INV_Misc_Herb_Nightmareseed", --placeholder
-        width = 12,
-        height = 12
-    },
-    ["Mana Thistle"] = {
-        text = L["Mana Thistle"],
-        path = "Interface\\Icons\\INV_Misc_Herb_Manathistle",
-        width = 12,
-        height = 12
-    },
-    ["Netherbloom"] = {
-        text = L["Netherbloom"],
-        path = "Interface\\Icons\\INV_Misc_Herb_Netherbloom",
-        width = 12,
-        height = 12
-    },
-    ["Nightmare Vine"] = {
-        text = L["Nightmare Vine"],
-        path = "Interface\\Icons\\INV_Misc_Herb_Nightmarevine",
-        width = 12,
-        height = 12
-    },
-    ["Ragveil"] = {
-        text = L["Ragveil"],
-        path = "Interface\\Icons\\INV_Misc_Herb_Ragveil",
-        width = 12,
-        height = 12
-    },
-    ["Terocone"] = {
-        text = L["Terocone"],
-        path = "Interface\\Icons\\INV_Misc_Herb_Terrocone",
-        width = 12,
-        height = 12
-    },
-    ["Flame Cap"] = {
-        text = L["Flame Cap"],
-        path = "Interface\\Icons\\INV_Misc_Herb_Flamecap",
-        width = 12,
-        height = 12
-    },
-    ["Dreaming Glory"] = {
-        text = L["Dreaming Glory"],
-        path = "Interface\\Icons\\INV_Misc_Herb_Dreamingglory",
-        width = 12,
-        height = 12
-    },
-    ["Fel Lotus"] = {
-        text = L["Fel Lotus"],
-        path = "Interface\\Icons\\INV_Misc_Herb_FelLotus",
-        width = 12,
-        height = 12
-    },
-   	["Ancient Lichen"] = {
-        text = L["Ancient Lichen"],
-        path = "Interface\\Icons\INV_Misc_Herb_AncientLichen", --placeholder
         width = 12,
         height = 12
     },
