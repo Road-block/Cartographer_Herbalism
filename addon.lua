@@ -466,15 +466,15 @@ function mod:OnInitialize()
 		}
     end
 
-    Cartographer.options.args[gsub(bs["Herbalism"], " ", "")] = {
+    Cartographer.options.args["Herbalism"] = {
         name = bs["Herbalism"],
         desc = self.notes,
         type = 'group',
         args = aceopts,
         handler = self,
     }
-    AceLibrary("AceConsole-2.0"):InjectAceOptionsTable(self, Cartographer.options.args[gsub(bs["Herbalism"], " ", "")])
-    Cartographer:GetModule('Professions').addons[bs["Herbalism"]] = self
+    AceLibrary("AceConsole-2.0"):InjectAceOptionsTable(self, Cartographer.options.args["Herbalism"])
+    Cartographer:GetModule('Professions').addons["Herbalism"] = self
 
     if not Cartographer_HerbalismDB then
         Cartographer_HerbalismDB = {}
